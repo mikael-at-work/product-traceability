@@ -11,38 +11,78 @@
 <link rel="icon" href="assets/logo.svg">
 </head>
 <body>
-<div class="app">
-  <header class="letterhead">
+
+<!-- HOME: assessment-first landing screen -->
+<div id="homeView" class="view">
+  <header class="hero">
     <img class="logo" src="assets/logo.svg" alt="">
     <div>
-      <div class="eyebrow">Trace Designer — Graph</div>
-      <h1>Product Traceability Graph</h1>
-      <p class="question">Not "what traces do we have" — "what paths exist from this product, and where do they break?" Nodes are shared across concerns; paths are the specific questions you ask of the graph.</p>
+      <div class="eyebrow">Trace Designer</div>
+      <h1>Product Traceability Designer</h1>
+      <p class="tagline">Assess traceability, DPP readiness, and gaps.</p>
     </div>
   </header>
 
-  <div class="toolbar">
-    <button id="addNodeBtn" class="btn-primary">+ Node</button>
-    <button id="connectBtn">⇢ Connect nodes</button>
-    <button id="newPathBtn">+ New path</button>
-    <button id="exportBtn">Export JSON</button>
-    <button id="resetBtn">Load example</button>
-    <span class="hint" id="modeHint"></span>
-    <span class="save-status" id="saveStatus">Saved</span>
+  <div class="search-block">
+    <label for="productSearch">Search products</label>
+    <input id="productSearch" type="text" placeholder="Search by product or grade…" autocomplete="off">
+    <div id="familyChips" class="chip-row"></div>
+    <div id="searchResults" class="result-list"></div>
   </div>
 
-  <div class="layout">
-    <div id="canvasWrap">
-      <div id="canvasInner">
-        <svg id="svg"></svg>
-        <div id="nodesLayer"></div>
+  <div class="recent-block">
+    <h2>Recent assessments</h2>
+    <ul id="recentList" class="recent-list"></ul>
+  </div>
+
+  <div class="home-footer">
+    <button id="openGraphDirectBtn">Open full graph editor →</button>
+  </div>
+</div>
+
+<!-- ASSESSMENT: score cards for one product -->
+<div id="assessmentView" class="view hidden">
+  <div class="app">
+    <button id="backHomeBtn" class="back-btn">← Back</button>
+    <div id="assessmentContent"></div>
+  </div>
+</div>
+
+<!-- GRAPH: the editor, reached from assessment (or directly, if you want) -->
+<div id="graphView" class="view hidden">
+  <div class="app">
+    <header class="letterhead">
+      <div>
+        <div class="eyebrow">Trace Designer — Graph</div>
+        <h1>Product Traceability Graph</h1>
+        <p class="question">Not "what traces do we have" — "what paths exist from this product, and where do they break?" Nodes are shared across concerns; paths are the specific questions you ask of the graph.</p>
       </div>
+    </header>
+
+    <div class="toolbar">
+      <button id="backToHomeBtn" class="back-btn">← Home</button>
+      <button id="addNodeBtn" class="btn-primary">+ Node</button>
+      <button id="connectBtn">⇢ Connect nodes</button>
+      <button id="newPathBtn">+ New path</button>
+      <button id="exportBtn">Export JSON</button>
+      <button id="resetBtn">Load example</button>
+      <span class="hint" id="modeHint"></span>
+      <span class="save-status" id="saveStatus">Saved</span>
     </div>
 
-    <aside>
-      <div class="panel" id="inspectorPanel"></div>
-      <div class="panel" id="pathsPanel"></div>
-    </aside>
+    <div class="layout">
+      <div id="canvasWrap">
+        <div id="canvasInner">
+          <svg id="svg"></svg>
+          <div id="nodesLayer"></div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="panel" id="inspectorPanel"></div>
+        <div class="panel" id="pathsPanel"></div>
+      </aside>
+    </div>
   </div>
 </div>
 

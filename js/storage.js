@@ -53,3 +53,27 @@ export function exportStateAsFile(state, filename = 'product-traceability-graph.
 export function importStateFromFile(file) {
   return file.text().then(text => JSON.parse(text));
 }
+
+/* ---------- recent assessments ---------- */
+
+const RECENTS_KEY = 'ptg-recents-v1';
+const MAX_RECENTS = 6;
+
+export function getRecents() {
+  try {
+    const raw = localStorage.getItem(RECENTS_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+export function addRecent(name) {
+  const trimmed = name.trim();
+  if (!trimmed) return getRecents();
+  let list = getRecents().filter(n => n.toLowerCase() !== trimmed.toLowerCase());
+  list.unshift(trimmed);
+  list = list.slice(0, MAX_RECENTS);
+  try { localStorage.setItem(RECENTS_KEY, JSON.stringify(list)); } catch (e) { /* non-fatal */ }
+  return list;
+}

@@ -28,6 +28,14 @@ export function initUI(graphState, changeCallback) {
   render();
 }
 
+export function selectNode(id) {
+  connectMode = false;
+  pendingConnectFrom = null;
+  pathDraft = null;
+  selection = id ? { type: 'node', id } : null;
+  render();
+}
+
 export function resetUIState() {
   selection = null;
   activePathId = null;
