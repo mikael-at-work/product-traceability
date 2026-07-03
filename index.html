@@ -1,92 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>Product Traceability Designer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="icon" href="assets/logo.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+
+  <title>Product Traceability Designer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  ./css/styles.css
+  ./assets/logo.svg
 </head>
+
 <body>
 
-<!-- HOME: assessment-first landing screen -->
-<div id="homeView" class="view">
-  <header class="hero">
-    <img class="logo" src="assets/logo.svg" alt="">
-    <div>
-      <div class="eyebrow">Trace Designer</div>
-      <h1>Product Traceability Designer</h1>
-      <p class="tagline">Assess traceability, DPP readiness, and gaps.</p>
-    </div>
-  </header>
+  <!-- HOME -->
 
-  
-  <div class="search-block">
-    <label for="productSearch">Search products</label>
-    <input id="productSearch" type="text" placeholder="Search by product or grade…" autocomplete="off">
-    <div id="familyChips" class="chip-row"></div>
-    <div id="searchResults" class="result-list"></div>
-  </div>
+  <main id="homeView" class="view">
 
-  <div class="recent-block">
-    <h2>Recent assessments</h2>
-    <ul id="recentList" class="recent-list"></ul>
-  </div>
+    <div class="page-container">
 
-  <div class="home-footer">
-    <button id="openGraphDirectBtn">Open full graph editor →</button>
-  </div>
-</div>
+      <header class="hero">
 
-<!-- ASSESSMENT: score cards for one product -->
-<div id="assessmentView" class="view hidden">
-  <div class="app">
-    <button id="backHomeBtn" class="back-btn">← Back</button>
-    <div id="assessmentContent"></div>
-  </div>
-</div>
+        <img class="logo"
+             src="./assets/logo.svg"
+             alt="">
 
-<!-- GRAPH: the editor, reached from assessment (or directly, if you want) -->
-<div id="graphView" class="view hidden">
-  <div class="app">
-    <header class="letterhead">
-      <div>
-        <div class="eyebrow">Trace Designer — Graph</div>
-        <h1>Product Traceability Graph</h1>
-        <p class="question">Not "what traces do we have" — "what paths exist from this product, and where do they break?" Nodes are shared across concerns; paths are the specific questions you ask of the graph.</p>
-      </div>
-    </header>
+        <div          Trace Designer
+          </div>
 
-    <div class="toolbar">
-      <button id="backToHomeBtn" class="back-btn">← Home</button>
-      <button id="addNodeBtn" class="btn-primary">+ Node</button>
-      <button id="connectBtn">⇢ Connect nodes</button>
-      <button id="newPathBtn">+ New path</button>
-      <button id="exportBtn">Export JSON</button>
-      <button id="resetBtn">Load example</button>
-      <span class="hint" id="modeHint"></span>
-      <span class="save-status" id="saveStatus">Saved</span>
-    </div>
+          <h1>
+            Product Traceability Designer
+          </h1>
 
-    <div class="layout">
-      <div id="canvasWrap">
-        <div id="canvasInner">
-          <svg id="svg"></svg>
-          <div id="nodesLayer"></div>
+          <p class="tagline">
+            Assess traceability, DPP readiness and critical gaps.
+          </p>
+
         </div>
+
+      </header>
+
+      <section class="search-block">
+
+        <label for="productSearch">
+          Search products
+        </label>
+
+        <input
+          id="productSearch"
+          type="text"
+          placeholder="Search product, grade or family..."
+          autocomplete="off">
+
+        <div id="familyChips"
+             class="chip-row">
+        </div>
+
+        <div id="searchResults"
+             class="result-list">
+        </div>
+
+      </section>
+
+      <section class="recent-block">
+
+        <h2>
+          Recent assessments
+        </h2>
+
+        <ul id="recentList"
+            class="recent-list">
+        </ul>
+
+      </section>
+
+      <footer class="home-footer">
+
+        <button id="openGraphDirectBtn">
+          Open Graph Editor →
+        </button>
+
+      </footer>
+
+    </div>
+
+  </main>
+
+  <!-- ASSESSMENT -->
+
+  <main id="assessmentView"
+        class="view hidden">
+
+    <div class="app">
+
+      <button id="backHomeBtn"
+              class="back-btn">
+        ← Back
+      </button>
+
+      <div id="assessmentContent">
       </div>
 
-      <aside>
-        <div class="panel" id="inspectorPanel"></div>
-        <div class="panel" id="pathsPanel"></div>
-      </aside>
     </div>
-  </div>
-</div>
 
-<script type="module" src="js/app.js"></script>
+  </main>
+
+  <!-- GRAPH -->
+
+  <main id="graphView"
+        class="view hidden">
+
+    <div class="app">
+
+      <header class="letterhead">
+
+        <div>
+
+          <div class="eyebrow">
+            Trace Designer — Graph
+          </div>
+
+          <h1>
+            Product Traceability Graph
+          </h1>
+
+          <p class="question">
+            What paths exist from this product, and where do they break?
+          </p>
+
+        </div>
+
+      </header>
+
+      <div class="toolbar">
+
+        <button id="backToHomeBtn"
+                class="back-btn">
+          ← Home
+        </button>
+
+        <button id="addNodeBtn"
+                class="btn-primary">
+          + Node
+        </button>
+
+        <button id="connectBtn">
+          ⇢ Connect Nodes
+        </button>
+
+        <button id="newPathBtn">
+          + New Path
+        </button>
+
+        <button id="exportBtn">
+          Export JSON
+        </button>
+
+        <button id="resetBtn">
+          Load Example
+        </button>
+
+        <span id="modeHint"
+              class="hint">
+        </span>
+
+        <span id="saveStatus"
+              class="save-status">
+          Saved
+        </span>
+
+      </div>
+
+      <div class="layout">
+
+        <div id="canvasWrap">
+
+          <div id="canvasInner">
+
+            <svg id="svg"></svg>
+
+            <div id="nodesLayer"></div>
+
+          </div>
+
+        </div>
+
+        <aside>
+
+          <div id="inspectorPanel"
+               class="panel">
+          </div>
+
+          <div id="pathsPanel"
+               class="panel">
+          </div>
+
+        </aside>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  ./js/app.jsscript>
+
 </body>
 </html>

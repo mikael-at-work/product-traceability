@@ -236,3 +236,243 @@ aside { width: 340px; flex: 0 0 340px; display: flex; flex-direction: column; ga
   aside { width: 100%; flex: none; }
   #canvasWrap { height: 460px; }
 }
+
+/* ==================================================
+   Assessment First UI
+================================================== */
+
+.view {
+  width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Home */
+
+#homeView {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.hero {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.hero .logo {
+  width: 56px;
+  height: 56px;
+}
+
+.tagline {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* Search */
+
+.search-block {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+
+.search-block label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#productSearch {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.chip-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.chip {
+  background: var(--ssab-blue-light);
+  color: var(--ssab-blue);
+  border: 1px solid var(--ssab-blue);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  background: var(--ssab-blue);
+  color: white;
+}
+
+/* Results */
+
+.result-list {
+  margin-top: 20px;
+}
+
+.result-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.result-card:hover {
+  border-color: var(--ssab-blue);
+  transform: translateY(-2px);
+}
+
+/* Recent */
+
+.recent-block {
+  margin-top: 30px;
+}
+
+.recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-list li {
+  background: white;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.recent-list li:hover {
+  border-color: var(--ssab-blue);
+}
+
+/* Footer */
+
+.home-footer {
+  margin-top: 30px;
+}
+
+/* Assessment */
+
+#assessmentContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.assessment-header {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.metric-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.metric-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ssab-blue);
+}
+
+.metric-label {
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Trace questions */
+
+.assessment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(340px,1fr));
+  gap: 16px;
+}
+
+.assessment-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.assessment-card h3 {
+  margin: 0;
+}
+
+.assessment-score {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.progress {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--ssab-blue);
+}
+
+/* Back button */
+
+.back-btn {
+  margin-bottom: 20px;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .assessment-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
