@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Exported snapshots — treat as user output, not source
+exports/*
+!exports/.gitkeep
+
+# Local env / secrets, if any get added later
+.env
+*.local

@@ -1,9 +1,51 @@
-<header>
-<nav>
-</nav>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Product Traceability Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/logo.svg">
+</head>
+<body>
+<div class="app">
+  <header class="letterhead">
+    <img class="logo" src="assets/logo.svg" alt="">
+    <div>
+      <div class="eyebrow">Trace Designer — Graph</div>
+      <h1>Product Traceability Graph</h1>
+      <p class="question">Not "what traces do we have" — "what paths exist from this product, and where do they break?" Nodes are shared across concerns; paths are the specific questions you ask of the graph.</p>
+    </div>
+  </header>
 
-<main id="app">
-</main>
+  <div class="toolbar">
+    <button id="addNodeBtn" class="btn-primary">+ Node</button>
+    <button id="connectBtn">⇢ Connect nodes</button>
+    <button id="newPathBtn">+ New path</button>
+    <button id="exportBtn">Export JSON</button>
+    <button id="resetBtn">Load example</button>
+    <span class="hint" id="modeHint"></span>
+    <span class="save-status" id="saveStatus">Saved</span>
+  </div>
 
-js/app.jsscript>
+  <div class="layout">
+    <div id="canvasWrap">
+      <div id="canvasInner">
+        <svg id="svg"></svg>
+        <div id="nodesLayer"></div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="panel" id="inspectorPanel"></div>
+      <div class="panel" id="pathsPanel"></div>
+    </aside>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
