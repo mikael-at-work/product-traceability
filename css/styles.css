@@ -1,15 +1,36 @@
 :root {
-  --bg: #14171C; --panel: #1B1F26; --panel-raised: #21262E; --line: #2D333B; --line-soft: #262B33;
-  --text: #E6E8EB; --text-muted: #8B94A3; --text-faint: #565F6D;
-  --traced: #4A9B7F; --traced-bg: rgba(74,155,127,0.14);
-  --partial: #C9A227; --partial-bg: rgba(201,162,39,0.14);
-  --gap: #D97A3D; --gap-bg: rgba(217,122,61,0.16);
-  --unknown: #5B6472; --unknown-bg: rgba(91,100,114,0.16);
-  --accent: #5B8DB8;
+  /* ---- SSAB brand palette (source of truth) ---- */
+  --ssab-blue: #0f2445;
+  --warm-1: #f5f4f2; --warm-2: #e5e3de; --warm-3: #b9b6af; --warm-4: #827e79;
+  --cool-1: #f6f8f6; --cool-2: #e4e7e4; --cool-3: #b2b6b2; --cool-4: #787c78;
+  --ssab-yellow: #faff8d; --ssab-red: #ff4433;
+  --white: #ffffff; --almost-black: #07141e;
+  --chart-blue: #005082; --chart-blue-light: #a1daf7;
+  --chart-orange: #ff8200; --chart-orange-light: #ffc3a7;
+  --chart-green: #1e4e40; --chart-green-light: #c1ebe2;
+
+  /* ---- app tokens (mapped from the brand palette above) ---- */
+  --bg: var(--white);
+  --panel: var(--warm-1);
+  --panel-raised: var(--warm-2);
+  --line: var(--warm-3);
+  --line-soft: var(--warm-2);
+
+  --text: var(--almost-black);
+  --text-muted: var(--warm-4);
+  --text-faint: var(--warm-3);
+
+  --accent: var(--ssab-blue);
+
+  /* status encoding — uses the brand's tables/charts pairs, as intended */
+  --traced: var(--chart-green);  --traced-bg: var(--chart-green-light);
+  --partial: var(--chart-orange); --partial-bg: var(--chart-orange-light);
+  --gap: var(--ssab-red);        --gap-bg: rgba(255,68,51,0.14);
+  --unknown: var(--cool-4);      --unknown-bg: var(--cool-2);
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; }
-::selection { background: var(--accent); color: #0D0F12; }
+::selection { background: var(--accent); color: var(--white); }
 .app { max-width: 1400px; margin: 0 auto; padding: 28px 20px 60px; }
 
 .letterhead { border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 20px; display: flex; align-items: flex-start; gap: 14px; }
@@ -31,8 +52,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 #canvasWrap {
   flex: 1; min-width: 0; height: 600px; overflow: auto; border: 1px solid var(--line); border-radius: 6px;
   background:
-    linear-gradient(var(--panel) 1px, transparent 1px) 0 0/24px 24px,
-    linear-gradient(90deg, var(--panel) 1px, transparent 1px) 0 0/24px 24px,
+    linear-gradient(var(--line-soft) 1px, transparent 1px) 0 0/24px 24px,
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px) 0 0/24px 24px,
     var(--bg);
 }
 #canvasInner { position: relative; width: 1300px; height: 760px; }
@@ -53,7 +74,7 @@ svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0
 .node.in-path { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .node .n-order {
   position: absolute; top: -9px; left: -9px; width: 20px; height: 20px; border-radius: 50%; background: var(--accent);
-  color: #0D0F12; font-family: 'Roboto', sans-serif; font-size: 10px; font-weight: 700;
+  color: var(--white); font-family: 'Roboto', sans-serif; font-size: 10px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
 }
 
@@ -72,7 +93,7 @@ aside { width: 340px; flex: 0 0 340px; display: flex; flex-direction: column; ga
 .panel h2 { font-family: 'Roboto', sans-serif; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 12px; font-weight: 600; }
 .field { margin-bottom: 10px; }
 .field label { display: block; font-family: 'Roboto', sans-serif; font-size: 10px; color: var(--text-faint); letter-spacing: .04em; margin-bottom: 4px; text-transform: uppercase; }
-.field input, .field select, .field textarea { width: 100%; background: var(--panel-raised); border: 1px solid var(--line-soft); border-radius: 3px; color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-size: 12.5px; padding: 6px 8px; }
+.field input, .field select, .field textarea { width: 100%; background: var(--white); border: 1px solid var(--line); border-radius: 3px; color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-size: 12.5px; padding: 6px 8px; }
 .field textarea { resize: vertical; min-height: 44px; font-family: 'IBM Plex Sans', sans-serif; }
 .empty-note { font-size: 12px; color: var(--text-faint); line-height: 1.5; }
 .del-btn { font-size: 11px; color: var(--gap); border-color: var(--gap); width: 100%; margin-top: 2px; }
@@ -117,7 +138,7 @@ aside { width: 340px; flex: 0 0 340px; display: flex; flex-direction: column; ga
   letter-spacing: .06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 8px;
 }
 #productSearch {
-  width: 100%; background: var(--panel); border: 1px solid var(--line); border-radius: 5px;
+  width: 100%; background: var(--white); border: 1px solid var(--line); border-radius: 5px;
   color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-size: 15px;
   padding: 12px 14px; margin-bottom: 14px;
 }
@@ -168,4 +189,3 @@ aside { width: 340px; flex: 0 0 340px; display: flex; flex-direction: column; ga
   #homeView .hero { flex-direction: column; gap: 8px; }
   .assessment-summary { gap: 18px; }
 }
-

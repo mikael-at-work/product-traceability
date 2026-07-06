@@ -6,13 +6,13 @@ export const NODE_W = 150;
 export const NODE_H = 54;
 
 export const TYPE_COLORS = {
-  product: '#5B8DB8',
-  variant: '#7C8CA8',
-  article: '#A9B4C4',
-  production: '#C9A227',
-  system: '#9B6BC7',
-  certificate: '#4A9B7F',
-  other: '#D97A3D'
+  product: '#0f2445',
+  variant: '#005082',
+  article: '#a1daf7',
+  production: '#ff8200',
+  system: '#787c78',
+  certificate: '#1e4e40',
+  other: '#827e79'
 };
 
 export const TYPE_LABELS = {
